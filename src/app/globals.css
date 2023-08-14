@@ -17,5 +17,31 @@
 }
 
 body {
- 
+}
+
+.btn {
+  @apply bg-white;
+  @apply hover:bg-gray-100;
+  @apply text-slate-800;
+  @apply font-semibold;
+  @apply py-1;
+  @apply px-4;
+  @apply border;
+  @apply border-gray-400;
+  @apply rounded;
+  @apply shadow;
+  @apply text-xs;
+}
+
+.input {
+  @apply bg-gray-50;
+  @apply border;
+  @apply border-gray-300;
+  @apply text-gray-900;
+  @apply text-sm rounded-lg;
+  @apply focus:ring-blue-500;
+  @apply focus:border-blue-500;
+  @apply block;
+  @apply w-full;
+  @apply p-2.5;
 }
