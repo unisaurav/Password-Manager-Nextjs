@@ -7,7 +7,6 @@ export async function GET(req: Request, { params }: any) {
   const id = params.id;
   try {
     const mydata = await AddPasswordModel.find({ userObjectId: id }); //getId
-    console.log(mydata);
     return NextResponse.json(
       mydata.length > 0 ? mydata : { info: "No Passwords saved" },
       { status: mydata.length > 0 ? 200 : 201 }

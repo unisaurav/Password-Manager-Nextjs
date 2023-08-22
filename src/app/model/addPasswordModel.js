@@ -17,10 +17,6 @@ const dataSchema = new mongoose.Schema({
     required: true,
     type: mongoose.ObjectId, 
   },
-  userIdName: {
-    required: true,
-    type: String,
-  },
 });
 
 module.exports =

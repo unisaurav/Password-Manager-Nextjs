@@ -9,14 +9,13 @@ export async function POST(req: Request) {
   const body = await req.json();
   const { username, webpassword, webUrl, userId } = body;
 
-  const mydata = await UserModel.findOne({ name: userId }); //getId
+  // const mydata = await UserModel.findOne({ name: userId }); //getId
 
   const data = new AddPasswordModel({
     username: username,
     webpassword: webpassword,
     webUrl: webUrl,
-    userIdName: userId,
-    userObjectId: mydata._id,
+    userObjectId: userId, //id
   });
 
   try {

@@ -1,23 +1,40 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { loginInfo } from "./page";
 import { useRouter } from "next/navigation";
+import secureLocalStorage from "react-secure-storage";
 
 const LoginComp = ({ loginApi }: any) => {
   const router = useRouter();
+  useEffect(() => {
+    secureLocalStorage.clear();
+  }, []);
 
   const [user, changeUser] = useState<loginInfo>({
     username: "",
     password: "",
   });
+  const [error, setError] = useState("");
 
   const mynewfun = async (user: any) => {
     const data = await loginApi(user);
-    data && router.push("/");
+    if (data?.id) {
+      secureLocalStorage.setItem("userKey", data.id);
+      router.push("/passwordhome");
+    } else {
+      setError(data?.message);
+    }
   };
 
   return (
     <div className="flex flex-col gap-3 w-72 p-4">
+      {error && (
+        <div>
+          <label className="block mb-2 text-sm font-medium text-gray-900 ">
+            {error}
+          </label>
+        </div>
+      )}
       <div>
         <label className="block mb-2 text-sm font-medium text-gray-900 ">
           Username

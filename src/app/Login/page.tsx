@@ -12,7 +12,7 @@ const loginApi = async (userInfo: loginInfo) => {
   });
 
   if (res.status !== 200) {
-    return false;
+    return res.json()
   }
 
   return res.status === 200 && res.json();
