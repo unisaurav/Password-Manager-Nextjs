@@ -7,6 +7,9 @@ import secureLocalStorage from "react-secure-storage";
 export default  function Home() {
   const username = secureLocalStorage.getItem("userKey") as string;
   const router = useRouter();
+  useEffect(()=>{
+    console.log(process.env.VERCEL_URL);
+  })
   return (
     <main>
       <div className="h-screen flex gap-3 items-center justify-center">
