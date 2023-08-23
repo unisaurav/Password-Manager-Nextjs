@@ -6,7 +6,7 @@ export interface loginInfo {
 const loginApi = async (userInfo: loginInfo) => {
   "use server";
 
-  const res = await fetch(`${process.env.VERCEL_URL}/api/login`, {
+  const res = await fetch(`https://${process.env.VERCEL_URL}/api/login`, {
     cache: "no-store",
     method: "POST",
     body: JSON.stringify({ ...userInfo, name: userInfo.username }),
