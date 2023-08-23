@@ -9,7 +9,7 @@ interface userinfo {
 
 const SignUpApi = async (newUserDetails: userinfo) => {
   "use server";
-  const res = await fetch("http://localhost:3000/api/signup", {
+  const res = await fetch(`${process.env.devUrl}/api/signup`, {
     cache: "no-store",
     method: "POST",
     body: JSON.stringify({ ...newUserDetails }),
