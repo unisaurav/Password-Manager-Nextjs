@@ -9,7 +9,7 @@ interface userinfo {
 
 const SignUpApi = async (newUserDetails: userinfo) => {
   "use server";
-  const res = await fetch(`${process.env.devUrl}/api/signup`, {
+  const res = await fetch(`https://${process.env.VERCEL_URL}/api/signup`, {
     cache: "no-store",
     method: "POST",
     body: JSON.stringify({ ...newUserDetails }),

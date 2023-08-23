@@ -4,7 +4,7 @@ import PasswordScreen from "./passwordhome";
 const PasswordContainer = () => {
   const getAllMyPasswords = async (id: any) => {
     "use server";
-    const res = await fetch(`${process.env.devUrl}/api/passwordlist/${id}`, {
+    const res = await fetch(`https://${process.env.VERCEL_URL}/api/passwordlist/${id}`, {
       cache: "no-store",
       method: "GET",
     });
@@ -21,7 +21,7 @@ const PasswordContainer = () => {
       userId: id,
     };
 
-    const res = await fetch(`${process.env.devUrl}/api/addpassword`, {
+    const res = await fetch(`https://${process.env.VERCEL_URL}/api/addpassword`, {
       cache: "no-store",
       method: "POST",
       body: JSON.stringify(userObjMapper),
