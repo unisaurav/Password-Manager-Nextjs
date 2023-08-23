@@ -16,7 +16,7 @@ export default  function Home() {
             router.push("/Login");
           }}
         >
-          Logins
+          Loginsss
         </button>{" "}
         <button
           className="btn"
