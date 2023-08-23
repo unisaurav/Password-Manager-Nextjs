@@ -56,7 +56,10 @@ const ListPassword = ({
         <tbody>
           {tablePasswords.map((item: passwordListTypeWithToggle, key) => {
             return (
-              <tr className="bg-white border-b">
+              <tr
+                className="bg-white border-b"
+                key={item.username + item.webUrl + item.webpassword+key}
+              >
                 <td className="px-6 py-4">{item.username}</td>
                 <td className="px-6 py-4">{item.webUrl}</td>
                 <td className="px-6 py-4">
@@ -65,13 +68,12 @@ const ListPassword = ({
                     : "*".repeat(item.webpassword.length)}
                 </td>
                 <td className="px-6 py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    <button>
+                  <td className="text-blue-500"
                     onClick={() => showHidePassWord(key)}
                   >
                     {item.show ? "HIDE" : "SHOW"}
-                  </a>
+                  </td></button>
                 </td>
               </tr>
             );

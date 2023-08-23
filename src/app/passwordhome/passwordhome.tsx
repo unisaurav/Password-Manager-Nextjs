@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import secureLocalStorage from "react-secure-storage";
 import ListPassword from "./ListPasswordsTable";
 
@@ -18,6 +18,8 @@ const PasswordScreen = ({ addMyPassowrds, getAllMyPasswords }: any) => {
     const initPasswordList = await getAllMyPasswords(userKey);
     if (initPasswordList.status === 200) {
       setPasswordList([...initPasswordList.list]);
+    } else if (initPasswordList.status === 201) {
+      setToast({ text: initPasswordList.list.info, color: "text-green-400" });
     } else {
       setToast({ text: "Something gone wrong", color: "text-red-500" });
     }
@@ -117,7 +119,9 @@ const PasswordScreen = ({ addMyPassowrds, getAllMyPasswords }: any) => {
         </button>
       </div>
       <div className="flex-1 flex-col gap-3 w-1/2">
-        <ListPassword passwordList={passwordList} />
+        <Suspense fallback={<div>loading....</div>}>
+          <ListPassword passwordList={passwordList} />
+        </Suspense>
       </div>
     </div>
   );

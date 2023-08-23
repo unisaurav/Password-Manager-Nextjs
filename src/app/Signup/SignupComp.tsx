@@ -99,7 +99,7 @@ const SignUpScreen = ({ SignUpApi }: any) => {
           Password
         </label>
         <input
-          type="confimpassword"
+          type="password"
           id="confimpassword"
           className="input"
           placeholder="Confirm Password"
@@ -116,6 +116,14 @@ const SignUpScreen = ({ SignUpApi }: any) => {
         }}
       >
         Login{" "}
+      </button>
+      <button
+        className="btn"
+        onClick={() => {
+          router.push('/Login')
+        }}
+      >
+        Dont have an account?!
       </button>
     </div>
   );

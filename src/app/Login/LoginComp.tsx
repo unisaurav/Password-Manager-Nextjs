@@ -69,6 +69,14 @@ const LoginComp = ({ loginApi }: any) => {
       >
         Login{" "}
       </button>
+      <button
+        className="btn"
+        onClick={() => {
+          router.push('/Signup')
+        }}
+      >
+        Already have an account?!
+      </button>
     </div>
   );
 };

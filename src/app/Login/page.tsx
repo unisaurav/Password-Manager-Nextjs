@@ -12,13 +12,17 @@ const loginApi = async (userInfo: loginInfo) => {
   });
 
   if (res.status !== 200) {
-    return res.json()
+    return res.json();
   }
 
   return res.status === 200 && res.json();
 };
 
 const hello = async () => {
-  return <LoginComp loginApi={loginApi} />;
+  return (
+    <div className="h-screen flex gap-3 items-center justify-center">
+      <LoginComp loginApi={loginApi} />{" "}
+    </div>
+  );
 };
 export default hello;

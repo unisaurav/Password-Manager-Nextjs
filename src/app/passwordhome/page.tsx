@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import PasswordScreen from "./passwordhome";
 
 const PasswordContainer = () => {
@@ -37,7 +38,9 @@ const PasswordContainer = () => {
 
   return (
     <div>
-      <PasswordScreen {...props} />
+      <Suspense fallback={<div>loading....</div>}>
+        <PasswordScreen {...props} />
+      </Suspense>
     </div>
   );
 };

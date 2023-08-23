@@ -19,6 +19,10 @@ const SignUpApi = async (newUserDetails: userinfo) => {
 };
 
 const Signup = () => {
-  return <SignUpScreen SignUpApi={SignUpApi} />;
+  return (
+    <div className="h-screen flex gap-3 items-center justify-center">
+      <SignUpScreen SignUpApi={SignUpApi} />{" "}
+    </div>
+  );
 };
 export default Signup;
